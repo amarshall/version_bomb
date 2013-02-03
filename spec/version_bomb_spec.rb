@@ -2,7 +2,7 @@ require './lib/version_bomb'
 
 describe VersionBomb do
   describe ".bomb!" do
-    it "blows up when the version matches the requirement" do
+    it "blows up when the version doesn't match the requirement" do
       version = double
       requirement = Gem::Requirement.new
       requirement.stub(:satisfied_by?).with(version).and_return(false)
@@ -12,7 +12,7 @@ describe VersionBomb do
       end.to raise_error VersionBomb::Bomb
     end
 
-    it "does nothing when the version doesn't match the requirement" do
+    it "does nothing when the version does match the requirement" do
       version = double
       requirement = Gem::Requirement.new
       requirement.stub(:satisfied_by?).with(version).and_return(true)
