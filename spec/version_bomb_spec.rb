@@ -1,7 +1,7 @@
 require './lib/version_bomb'
 
 describe VersionBomb do
-  describe ".bomb" do
+  describe ".bomb!" do
     it "blows up when the version matches the requirement" do
       version = double
       requirement = Gem::Requirement.new
